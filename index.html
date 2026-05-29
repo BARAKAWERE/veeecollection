@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VEE Collection Outfit</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      background:#000;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:white;
+    }
+
+    /* ===== NAVBAR ===== */
+    header{
+      width:100%;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:1000;
+      background:rgba(0,0,0,0.7);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+
+    nav{
+      width:90%;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .logo img{
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      object-fit:cover;
+      border:2px solid gold;
+    }
+
+    .logo h1{
+      font-size:28px;
+      color:#f7c6d9;
+      font-family:'Playfair Display', serif;
+    }
+
+    .menu{
+      display:flex;
+      gap:30px;
+    }
+
+    .menu a{
+      transition:0.3s;
+      font-weight:500;
+    }
+
+    .menu a:hover{
+      color:#f7c6d9;
+    }
+
+    /* ===== HERO SECTION ===== */
+
+    .hero{
+      height:100vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)),
+      url('images/home-bg.png');
+
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:20px;
+    }
+
+    .hero-content{
+      max-width:800px;
+    }
+
+    .hero h2{
+      font-size:70px;
+      font-family:'Playfair Display', serif;
+      color:gold;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:24px;
+      margin-bottom:30px;
+      color:#f8dce7;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:15px 40px;
+      background:gold;
+      color:black;
+      border-radius:40px;
+      font-weight:bold;
+      transition:0.4s;
+    }
+
+    .btn:hover{
+      background:#f7c6d9;
+      transform:scale(1.05);
+    }
+
+    /* ===== SECTION ===== */
+
+    section{
+      padding:100px 10%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .section-title h2{
+      font-size:50px;
+      color:gold;
+      font-family:'Playfair Display', serif;
+    }
+
+    .section-title p{
+      color:#ccc;
+      margin-top:10px;
+    }
+
+    /* ===== PRODUCTS ===== */
+
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:#111;
+      border-radius:20px;
+      overflow:hidden;
+      transition:0.4s;
+      border:1px solid rgba(255,255,255,0.1);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 10px 30px rgba(255,215,0,0.2);
+    }
+
+    .card img{
+      width:100%;
+      height:320px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:20px;
+    }
+
+    .card-content h3{
+      margin-bottom:10px;
+      color:#f7c6d9;
+    }
+
+    .card-content p{
+      color:#bbb;
+      margin-bottom:15px;
+    }
+
+    .price{
+      color:gold;
+      font-size:22px;
+      font-weight:bold;
+    }
+
+    /* ===== ABOUT ===== */
+
+    .about{
+      background:
+      linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+      url('images/about-bg.png');
+
+      background-size:cover;
+      background-position:center;
+      border-radius:30px;
+    }
+
+    .about-content{
+      max-width:800px;
+      margin:auto;
+      text-align:center;
+    }
+
+    .about-content h2{
+      color:gold;
+      font-size:50px;
+      margin-bottom:20px;
+    }
+
+    .about-content p{
+      font-size:18px;
+      line-height:1.8;
+      color:#eee;
+    }
+
+    /* ===== GALLERY ===== */
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:20px;
+    }
+
+    .gallery img{
+      width:100%;
+      height:350px;
+      object-fit:cover;
+      border-radius:20px;
+      transition:0.4s;
+    }
+
+    .gallery img:hover{
+      transform:scale(1.03);
+    }
+
+    /* ===== CONTACT ===== */
+
+    .contact{
+      background:#111;
+      border-radius:30px;
+      text-align:center;
+    }
+
+    .contact h2{
+      color:gold;
+      margin-bottom:20px;
+      font-size:45px;
+    }
+
+    .contact p{
+      margin-bottom:15px;
+      color:#ddd;
+    }
+
+    /* ===== FOOTER ===== */
+
+    footer{
+      text-align:center;
+      padding:30px;
+      background:#000;
+      color:#aaa;
+      border-top:1px solid rgba(255,255,255,0.1);
+    }
+
+    /* ===== MOBILE ===== */
+
+    @media(max-width:768px){
+
+      .menu{
+        gap:15px;
+        font-size:14px;
+      }
+
+      .hero h2{
+        font-size:45px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .section-title h2{
+        font-size:35px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+
+  <header>
+    <nav>
+
+      <div class="logo">
+        <img src="images\logo.png.png" alt="VEE Logo">
+        <h1>VEE COLLECTION OUTFIT</h1>
+      </div>
+
+      <div class="menu">
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+      <h2>Fashion Yako Fahari Yako</h2>
+
+      <p>
+        Karibu VEE Collection — mahali pa mavazi ya kisasa,
+        magazine, handbags, viatu na vitu vya urembo vya kifahari.
+      </p>
+
+      <a href="#shop" class="btn">Shop Now</a>
+    </div>
+
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+
+  <section id="shop">
+
+    <div class="section-title">
+      <h2>Bidhaa Zetu</h2>
+      <p>Mitindo ya kisasa kwa wanawake wenye mvuto.</p>
+    </div>
+
+    <div class="products">
+
+      <div class="card">
+        <img src="images/veenguo1.png" alt="">
+        <div class="card-content">
+          <h3>Elegant Dress</h3>
+          <p>Muonekano wa kifalme kwa kila tukio.</p>
+          <div class="price">Tsh 85,000</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/veemikoba1.jpg" alt="">
+        <div class="card-content">
+          <h3>Luxury Handbag</h3>
+          <p>Handbag ya kisasa yenye mvuto wa kipekee.</p>
+          <div class="price">Tsh 40,000</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/veeviatu1.jpg" alt="">
+        <div class="card-content">
+          <h3>Fashion Heels</h3>
+          <p>Viatu vya kisasa kwa wanawake classy.</p>
+          <div class="price">Tsh 35,000</div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+
+  <section id="about">
+
+    <div class="about">
+
+      <div class="about-content">
+
+        <h2>Kuhusu Sisi</h2>
+
+        <p>
+          VEE Collection ni brand ya kisasa inayotoa mavazi,
+          accessories, handbags, viatu na bidhaa za urembo kwa wanawake na Wnaume
+          wanaopenda muonekano wa classy na elegant.
+          Tunauza bidhaa zenye ubora wa hali ya juu kwa bei nzuri.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+
+  <section id="gallery">
+
+    <div class="section-title">
+      <h2>Fashion Gallery</h2>
+      <p>Onyesha bidhaa zako nzuri hapa.</p>
+    </div>
+
+    <div class="gallery">
+
+      <img src="images/gallery1.jpg.jpg">
+      <img src="images/vee2.jpeg">
+      <img src="images/vee3.jpeg">
+      <img src="images/vee1.jpeg">
+
+    </div>
+
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+
+  <section id="contact">
+
+    <div class="contact">
+
+      <h2>Wasiliana Nasi</h2>
+
+      <p>📞 +255 685809559</p>
+
+      <p>
+      💬 WhatsApp:
+      <a href="https://wa.me/255685809559"
+      style="color:rgb(4, 116, 37);">
+      Chat Now
+      </a>
+      </p>
+
+      <p>📍 Tanga, Tanzania</p>
+      <p>📧 veecollectionoutfit@gmail.com</p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+
+  <footer>
+    © 2026 VEE Cllection Outfit | Fashion Yako Fahari Yako
+  </footer>
+
+</body>
+</html>
